@@ -14,9 +14,11 @@ function App() {
       <Header />
       <main>
         <div className={styles.container}>
-          {posts.map((post) => (
-            <Card key={post.id} post={post} />
-          ))}
+          {posts
+            .filter((post) => post.published)
+            .map((post) => (
+              <Card post={post} key={post.id} />
+            ))}
         </div>
       </main>
       <Footer />
